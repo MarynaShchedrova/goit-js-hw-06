@@ -8,11 +8,8 @@ const ingredients = [
 ];
 
 const ulList = document.getElementById("ingredients");
-const foodIngredients = ingredients.forEach(ingredient => {
-  const items = document.createElement("li");
-  items.innerHTML = ingredient;
-  ulList.append(items);
-  parent.append(...items)
-});
-
-console.log(foodIngredients);
+const ingredientUp = ingredients.map(ingrient => {
+  return `<li class="item">${ingrient}</li>`
+})
+console.log(ingredientUp);
+ulList.innerHTML = ingredientUp.join('');
