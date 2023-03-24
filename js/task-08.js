@@ -5,7 +5,7 @@ form.addEventListener("submit", event => {
     const { elements: { email, password } } = event.currentTarget;
 
     if (email.value === "" || password.value === "") {
-        return alert("Please fill in all the fields!");
+        alert("Please fill in all the fields!");
     }
     const userDetails = { email: email.value, Password: password.value };
     console.log(userDetails);

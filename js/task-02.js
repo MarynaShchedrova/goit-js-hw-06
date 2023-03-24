@@ -8,8 +8,14 @@ const ingredients = [
 ];
 
 const ulList = document.getElementById("ingredients");
-const ingredientUp = ingredients.map(ingrient => {
-  return `<li class="item">${ingrient}</li>`
+
+const liArray = [];
+
+ingredients.forEach(ingredient => {
+  const item = document.createElement('li');
+  item.className = 'item';
+  item.textContent = ingredient;
+  liArray.push(item);
 })
-console.log(ingredientUp);
-ulList.innerHTML = ingredientUp.join('');
+
+ulList.append(...liArray);
