@@ -10,13 +10,14 @@ const btnDestroy = document.querySelector("button[data-destroy]");
 const boxes = document.querySelector("#boxes");
 
 let element;
-let lastEl = 0;
+let lastEl = 20;
 const createBoxes = amount => {
 
   const elementsToAdd = [];
 
-  for (let i = 0; i < amount; i++) {
-    element = lastEl + 30 + 10 * i;
+  for (let i = 1; i <= amount; i++) {
+    element = lastEl + 10 * i;
+
     const div = document.createElement('div');
     div.style.height = element + 'px';
     div.style.width = element + 'px';
@@ -24,6 +25,7 @@ const createBoxes = amount => {
     elementsToAdd.push(div);
 
   }
+
   lastEl = element;
   return elementsToAdd;
 };
@@ -31,7 +33,7 @@ const createBoxes = amount => {
 
 btnCreate.addEventListener('click', () => {
 
-  let boxesToAdd = createBoxes(inputNum.value);
+  let boxesToAdd = createBoxes(+inputNum.value);
   boxes.append(...boxesToAdd);
 
 });
@@ -40,10 +42,10 @@ console.log(inputNum.value);
 
 const destroyBoxes = () => {
   boxes.innerHTML = '';
+  lastEl = 0;
+  inputNum.value = '';
 };
 
 btnDestroy.addEventListener('click', () => {
-  destroyBoxes.call();
-  lastEl = 0;
-  inputNum.value = '';
+  destroyBoxes();
 });
